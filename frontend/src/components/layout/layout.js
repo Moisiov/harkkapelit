@@ -4,10 +4,10 @@ const Layout = ({ children }) => {
     return(
         <>
             <div>
-                Layout component
+                {children}
             </div>
         </>
     )
 }
 
-export default Layout;
+export default Layout
