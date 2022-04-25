@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.3",
+    "google-auth-library": "^8.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.26",
