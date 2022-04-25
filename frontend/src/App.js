@@ -3,7 +3,7 @@ import Pages from './pages'
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <Pages />
     </div>
   )
