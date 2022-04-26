@@ -8,26 +8,26 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:  
       - '5432:5432'
-  backend:
-    build:
-      dockerfile: Dockerfile
-      context: ./backend
-    command: npm run start
-    ports:
-      - '5000:5000'
-    environment:
-      DB_HOST: db
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_NAME: postgres
-    depends_on:
-      - db
-  frontend:
-    build:
-      dockerfile: Dockerfile
-      context: ./frontend
-    command: npm run start
-    ports:
-      - '3000:3000'
-    depends_on:
-      - db
+#  backend:
+#    build:
+#      dockerfile: Dockerfile
+#      context: ./backend
+#    command: npm run start
+#    ports:
+#      - '5000:5000'
+#    environment:
+#      DB_HOST: db
+#      DB_USER: postgres
+#      DB_PASSWORD: postgres
+#      DB_NAME: postgres
+#    depends_on:
+#      - db
+#  frontend:
+#    build:
+#      dockerfile: Dockerfile
+#      context: ./frontend
+#    command: npm run start
+#    ports:
+#      - '3000:3000'
+#    depends_on:
+#      - db

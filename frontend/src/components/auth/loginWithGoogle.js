@@ -1,4 +1,3 @@
-import React from 'react'
 import GoogleLogin from 'react-google-login'
 
 const LoginWithGoogle = ({ setLoginData }) => {
@@ -14,6 +13,7 @@ const LoginWithGoogle = ({ setLoginData }) => {
         })
         const data = await res.json()
         setLoginData(data)
+        localStorage.setItem('loginData', JSON.stringify(data))
     }
 
     const handleFailure = (result) => {

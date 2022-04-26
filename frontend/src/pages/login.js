@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import LoginWithGoogle from '../components/auth/loginWithGoogle'
 
 const Login = () => {
@@ -21,7 +21,7 @@ const Login = () => {
                         <p>Logged in as {loginData.email}</p>
                         <button onClick={handleLogout}>Logout</button>
                     </div>
-                ) : <LoginWithGoogle setLoginData={setLoginData}/>
+                ) : <LoginWithGoogle setLoginData={setLoginData} />
             }
         </div>
     )
