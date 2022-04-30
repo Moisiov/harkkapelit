@@ -1,8 +1,17 @@
 @import '../components/layout/layout.scss';
 @import '../components/layout/header.scss';
 @import '../components/layout/nav.scss';
+@import '../components/generic/cards/card.scss';
 
 body {
     margin: 0;
     padding: 0;
+    background: $background;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 16px;
 }

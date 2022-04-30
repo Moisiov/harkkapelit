@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .layoutWrapper {
     @media (min-width: 700px) {
         display: flex;
@@ -8,18 +10,18 @@
         flex: auto;
         flex-direction: column;
     }
+}
 
-    .layoutContent {
-        position: fixed;
-        height: calc(100% - 185px);
-        width: 100%;
-        padding: 1em;
-        overflow-y: scroll;
-        @media (min-width: 700px) {
-            flex: 1;
-            margin-left: 260px;
-            height: calc(100% - 64px);
-            width: calc(100% - 260px);
-        }
+.layoutContent {
+    position: fixed;
+    height: calc(100% - 185px);
+    width: 100%;
+    padding: 1em;
+    overflow-y: scroll;
+    @media (min-width: 700px) {
+        flex: 1;
+        margin-left: 252px;
+        height: calc(100% - 64px);
+        width: calc(100% - 252px);
     }
 }

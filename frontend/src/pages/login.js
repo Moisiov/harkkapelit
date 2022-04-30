@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LoginWithGoogle from '../components/auth/loginWithGoogle'
+import Card from '../components/generic/cards/card'
 
 const Login = () => {
     const [loginData, setLoginData] = useState(
@@ -15,6 +16,7 @@ const Login = () => {
 
     return (
         <div className='loginPage'>
+            <Card className='center'>
             {
                 loginData ? (
                     <div>
@@ -23,6 +25,7 @@ const Login = () => {
                     </div>
                 ) : <LoginWithGoogle setLoginData={setLoginData} />
             }
+            </Card>
         </div>
     )
 }

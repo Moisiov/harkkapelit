@@ -1,6 +1,9 @@
+@import '../../styles/variables.scss';
+
 .layoutNav {
     padding: 1em;
-    background: #fff2cf;
+    background: $dark;
+    box-shadow: $shadow;
     @media (max-width: 700px) {
         padding-top: 64px;
     }
@@ -20,14 +23,14 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1em;
-            color: #2b2b2b;
+            color: $navLink;
         }
         a:visited {
-            color: #2b2b2b;
+            color: $navLink;
         }
         a:hover,
         a:focus {
-            color: #555555;
+            color: $navLinkHover;
         }
     }
 }

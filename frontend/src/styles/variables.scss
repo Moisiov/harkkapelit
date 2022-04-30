@@ -1,8 +1,20 @@
  
 // Colors
- $blackColor: rgb(26,26,26);
- $whiteColor: rgb(232,232,232);
+$blackColor: rgb(26,26,26);
+$whiteColor: rgb(232,232,232);
 
- // Fonts
- $titleFont: Arial, Helvetica, sans-serif;
- $bodyFont: 'Times New Roman', Times, serif;
+$background: rgb(229,227,201);
+$light: rgb(180, 207, 176);
+$dark: rgb(148,180,159);
+$gray: rgb(120,147,149);
+
+$navLink: rgb(70,70,70);
+$navLinkHover: rgb(120,120,120);
+$cardBackground: rgb(250,250,250);
+
+// Fonts
+$titleFont: Arial, Helvetica, sans-serif;
+$bodyFont: 'Times New Roman', Times, serif;
+
+// Other
+$shadow: 3px 3px 8px 0px rgba(50,50,50, 0.5);
