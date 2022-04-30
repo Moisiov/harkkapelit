@@ -11,11 +11,11 @@ const Nav = () => {
                     <Link to="/">Etusivu</Link>
                 </li>
                 <li>
-                    <Link to="/">Ilmoitukset</Link>
+                    <Link to="/games">Ilmoitukset</Link>
                 </li>
                 {
                     user ? (<li>
-                    <Link to="/">Profiili</Link>
+                    <Link to="/profile">Profiili</Link>
                 </li>) : <></>
                 }
                 <li>

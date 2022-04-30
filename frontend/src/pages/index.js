@@ -8,6 +8,8 @@ import {
 import Layout from '../components/layout/layout'
 import Home from './home'
 import Login from './login'
+import Games from './games'
+import Profile from './profile'
 
 const Pages = () => {
     return (
@@ -15,7 +17,9 @@ const Pages = () => {
             <Layout>
                 <Routes>
                     <Route exact path='/' element={ <Home /> } />
-                    <Route exact path='/login' element={ <Login /> } />
+                    <Route path='/games' element={ <Games /> } />
+                    <Route path='/profile' element={ <Profile /> } />
+                    <Route path='/login' element={ <Login /> } />
                 </Routes>
             </Layout>
         </Router>
