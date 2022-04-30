@@ -1,5 +1,6 @@
 import React from 'react'
 import Pages from './pages'
+import './styles/styles.scss'
 
 function App() {
   return (
