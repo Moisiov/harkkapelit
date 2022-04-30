@@ -1,17 +1,10 @@
 import GoogleLogin from 'react-google-login'
+import { post } from '../../common/httpRequests'
 
 const LoginWithGoogle = ({ setLoginData }) => {
     const handleLogin = async (googleData) => {
-        const res = await fetch('api/login/google', {
-            method: 'POST',
-            body: JSON.stringify({
-                token: googleData.tokenId
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        const data = await res.json()
+        const body = JSON.stringify({ token: googleData.tokenId })
+        const data = await post('api/login/google', body)
         setLoginData(data)
         localStorage.setItem('loginData', JSON.stringify(data))
     }
