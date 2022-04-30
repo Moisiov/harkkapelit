@@ -16,7 +16,7 @@ const Login = () => {
 
     return (
         <div className='loginPage'>
-            <Card className='center'>
+            <Card title='Login'>
             {
                 loginData ? (
                     <div>

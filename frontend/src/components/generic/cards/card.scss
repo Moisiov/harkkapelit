@@ -3,6 +3,16 @@
 .card {
     background: $cardBackground;
     margin: 32px;
+    padding: 16px;
     border-radius: 16px;
     box-shadow: $shadow;
+
+    .title {
+        margin: 8px;
+    }
+
+    .content {
+        margin: 8px;
+        display: flex;
+    }
 }

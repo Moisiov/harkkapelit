@@ -2,6 +2,7 @@
 @import '../components/layout/header.scss';
 @import '../components/layout/nav.scss';
 @import '../components/generic/cards/card.scss';
+@import '../pages/login.scss';
 
 body {
     margin: 0;
@@ -12,6 +13,5 @@ body {
 .center {
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
     padding: 16px;
 }
