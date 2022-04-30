@@ -1,11 +1,15 @@
 import React from 'react'
+import { UserProvider } from './contexts/userContext'
 import Pages from './pages'
 import './styles/styles.scss'
 
 function App() {
+
   return (
     <div className='app'>
-      <Pages />
+      <UserProvider>
+        <Pages />
+      </UserProvider>
     </div>
   )
 }

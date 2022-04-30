@@ -1,29 +1,25 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import LoginWithGoogle from '../components/auth/loginWithGoogle'
 import Card from '../components/generic/cards/card'
+import { UserContext } from '../contexts/userContext'
 
 const Login = () => {
-    const [loginData, setLoginData] = useState(
-        localStorage.getItem('loginData')
-            ? JSON.parse(localStorage.getItem('loginData'))
-            : null
-    )
+    const { user, setUser } = useContext(UserContext)
 
     const handleLogout = () => {
-        localStorage.removeItem('loginData')
-        setLoginData(null)
+        setUser(null)
     }
 
     return (
         <div className='loginPage'>
             <Card title='Login'>
             {
-                loginData ? (
+                user ? (
                     <div>
-                        <p>Logged in as {loginData.email}</p>
+                        <p>Logged in as {user.email}</p>
                         <button onClick={handleLogout}>Logout</button>
                     </div>
-                ) : <LoginWithGoogle setLoginData={setLoginData} />
+                ) : <LoginWithGoogle setLoginData={setUser} />
             }
             </Card>
         </div>

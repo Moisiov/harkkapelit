@@ -6,7 +6,6 @@ const LoginWithGoogle = ({ setLoginData }) => {
         const body = JSON.stringify({ token: googleData.tokenId })
         const data = await post('api/login/google', body)
         setLoginData(data)
-        localStorage.setItem('loginData', JSON.stringify(data))
     }
 
     const handleFailure = (result) => {
