@@ -2,7 +2,9 @@
 @import '../components/layout/header.scss';
 @import '../components/layout/nav.scss';
 @import '../components/generic/cards/card.scss';
+@import '../components/generic/helpers/tooltip.scss';
 @import '../pages/login.scss';
+@import '../pages/games.scss';
 
 body {
     margin: 0;
