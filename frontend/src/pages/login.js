@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import LoginWithGoogle from '../components/auth/loginWithGoogle'
 import Card from '../components/generic/cards/card'
 import { UserContext } from '../contexts/userContext'
