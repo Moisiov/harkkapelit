@@ -20,3 +20,15 @@ export const post = async (url, body) => {
         return response.json()
     })
 }
+
+export const put = async (url, body) => {
+    return fetch(url, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "PUT",
+        body
+    }).then((response) => {
+        return response.json()
+    })
+}

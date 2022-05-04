@@ -37,7 +37,7 @@ model GameAd {
   sport         Sport     @relation(fields: [sportId], references: [id])
   sportId       Int
   title         String
-  description   String
+  description   String?
   generation    Int
   gameDates     DateTime[]
 }
