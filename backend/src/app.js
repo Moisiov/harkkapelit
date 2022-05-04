@@ -1,9 +1,8 @@
-const express = require('express')
-const dotenv = require('dotenv')
-
+import dotenv from 'dotenv'
 dotenv.config()
 
-var userRouter = require('./routes/user.routes')
+import express from 'express'
+import userRouter from './routes/user.route.js'
 
 const PORT = process.env.PORT || 5000
 

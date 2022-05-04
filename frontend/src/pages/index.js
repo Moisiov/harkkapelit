@@ -10,6 +10,7 @@ import Home from './home'
 import Login from './login'
 import Games from './games'
 import Profile from './profile'
+import NewAd from './newAd'
 
 const Pages = () => {
     return (
@@ -20,6 +21,7 @@ const Pages = () => {
                     <Route path='/games' element={ <Games /> } />
                     <Route path='/profile' element={ <Profile /> } />
                     <Route path='/login' element={ <Login /> } />
+                    <Route path='/newad' element={ <NewAd /> } />
                 </Routes>
             </Layout>
         </Router>

@@ -13,6 +13,36 @@ datasource db {
 model User {
   id      Int     @id @default(autoincrement())
   email   String  @unique
-  name    String?
+  name    String
+  profile Profile?
+  ads     GameAd[]
+}
+
+model Profile {
+  id      Int  @id @default(autoincrement())
+  user    User @relation(fields: [userId], references: [id])
+  userId  Int
+  bio     String?
   picture String?
+  phone   String?
+}
+
+model GameAd {
+  id            Int       @id @default(autoincrement())
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+  createdAt     DateTime  @default(now())
+  active        Boolean   @default(true)
+  sport         Sport     @relation(fields: [sportId], references: [id])
+  sportId       Int
+  title         String
+  description   String
+  generation    Int
+  gameDates     DateTime[]
+}
+
+model Sport {
+  id      Int     @id @default(autoincrement())
+  name    String
+  ads     GameAd[]
 }

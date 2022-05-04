@@ -1,5 +1,6 @@
-const e = require('express')
-const { OAuth2Client } = require('google-auth-library')
+import * as userService from '../services/user.service.js'
+import { OAuth2Client  } from 'google-auth-library'
+
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID)
 
 const userLoginGoogle = async (req, res, next) => {
@@ -14,10 +15,11 @@ const userLoginGoogle = async (req, res, next) => {
         email: email,
         picture: picture
     }
+
+    var userInDatabase = userService.getUserByEmail(user.email)
+
     res.status(201)
-    res.json(user)
+    res.json(userInDatabase)
 }
 
-module.exports = {
-  userLoginGoogle
-}
+export { userLoginGoogle }

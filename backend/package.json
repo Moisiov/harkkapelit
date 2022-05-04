@@ -2,13 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "watch": "nodemon src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Valto Moisio",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^3.13.0",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.26",
+    "nodemon": "^2.0.16",
     "prisma": "^3.13.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
