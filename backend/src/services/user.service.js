@@ -4,13 +4,24 @@ const { PrismaClient } = Prisma
 const prisma = new PrismaClient()
 
 export const getUserByEmail = async (email) => {
-    const user = await prisma.user({ email: email })
+    const user = await prisma.user.findUnique({
+        where: {
+            email: email
+        }
+    })
     return user
 }
 
 export const create = async (user) => {
-    prisma.createUser({
-        email: user.email,
-        name: user.name
-    })
+    try {
+        await prisma.user.create({
+            data: {
+                email: user.email,
+                name: user.name
+            }
+        })
+    }
+    catch (e) {
+        console.error(e)
+    }
 }

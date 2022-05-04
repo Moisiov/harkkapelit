@@ -1,5 +1,5 @@
 export const get = async (url) => {
-    return await fetch(url, {
+    return fetch(url, {
         headers: {
             "Content-Type": "application/json"
         },
@@ -10,7 +10,7 @@ export const get = async (url) => {
 }
 
 export const post = async (url, body) => {
-    return await fetch(url, {
+    return fetch(url, {
         headers: {
             "Content-Type": "application/json"
         },

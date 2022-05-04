@@ -9,6 +9,9 @@
     "start": "node src/app.js",
     "watch": "nodemon src/app.js"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "keywords": [],
   "author": "Valto Moisio",
   "license": "ISC",
