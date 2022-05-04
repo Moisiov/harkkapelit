@@ -8,7 +8,7 @@ const Games = () => {
             <div className='topBar'>
                 <Tooltip content='Lisää uusi ilmoitus' direction='left'>
                     <IconButton>
-                        <Icon />
+                        <Icon icon='plus' />
                     </IconButton>
                 </Tooltip>
             </div>

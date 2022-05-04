@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+
+.iconButton {
+    background-color: transparent;
+    margin: 8px;
+    padding: 0;
+    border: none;
+
+    div {
+        height: 100%;
+        width: 100%;
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

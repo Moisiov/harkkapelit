@@ -1,8 +1,25 @@
+@import '../styles/variables.scss';
+
 .gamesPage {
     .topBar {
         display: flex;
-        height: 4em;
         flex-flow: row wrap;
         justify-content: flex-end;
+
+        .iconButton {
+            height: 4em;
+            width: 4em;
+
+            svg {
+                color: $dark;
+                filter: $iconShadow;
+            }
+
+            &:hover {
+                svg {
+                    color: $light;
+                }
+            }
+        }
     }
 }

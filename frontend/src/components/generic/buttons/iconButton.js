@@ -1,6 +1,6 @@
-const IconButton = ({ tooltip, children }) => {
+const IconButton = ({ children }) => {
     return (
-        <button>{children}</button>
+        <button className='iconButton'>{children}</button>
     )
 }
 
