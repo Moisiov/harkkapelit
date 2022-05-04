@@ -24,6 +24,15 @@ const NewAdForm = () => {
                         <input name="title" />
                     </label>
                     <label>
+                        <p>Laji</p>
+                        <select>
+                            <option value={null}></option>
+                            {sports.map((sport) => {
+                                return <option value={sport.id}>{sport.name}</option>
+                            })}
+                        </select>
+                    </label>
+                    <label>
                         <p>Kuvaus</p>
                         <input name="description" />
                     </label>
