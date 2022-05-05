@@ -28,7 +28,7 @@ export const userLoginGoogle = async (req, res, next) => {
         })
 }
 
-export const logout = (req, res) => {
+export const logout = async (req, res) => {
     return res.clearCookie(
         'access_token'
         ).status(

@@ -10,3 +10,9 @@ export const create = async (req, res, next) => {
 
     return res.sendStatus(200)
 }
+
+export const getAll = async (req, res, next) => {
+    const games = await gameService.getAll()
+
+    return res.json(games)
+}

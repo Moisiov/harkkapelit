@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export const create = async (data, user) => {
     try {
-        const game = await prisma.gameAd.create({
+        const game = await prisma.game.create({
             data: {
                 user: {
                     connect: {
@@ -25,6 +25,23 @@ export const create = async (data, user) => {
         })
 
         return game
+    }
+    catch (e) {
+        console.error(e)
+    }
+}
+
+export const getAll = async () => {
+    try {
+        const games = await prisma.findMany({
+            orderBy: [
+                {
+                    title: 'asc'
+                }
+            ]
+        })
+
+        return games
     }
     catch (e) {
         console.error(e)
