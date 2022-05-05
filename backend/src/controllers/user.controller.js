@@ -15,8 +15,7 @@ export const userLoginGoogle = async (req, res, next) => {
 
     const user = {
         name: name,
-        email: email,
-        picture: picture
+        email: email
     }
 
     var userInDatabase = await userService.getUserByEmail(user.email)
@@ -28,5 +27,8 @@ export const userLoginGoogle = async (req, res, next) => {
     const jwt = getJwtToken(user)
 
     res.status(200)
-    res.json(user)
+    res.json({
+        user: user,
+        token: jwt
+    })
 }

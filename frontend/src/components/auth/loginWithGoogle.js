@@ -5,7 +5,7 @@ const LoginWithGoogle = ({ setLoginData }) => {
     const handleLogin = async (googleData) => {
         const body = JSON.stringify({ token: googleData.tokenId })
         const data = await post('api/login/google', body)
-        setLoginData(data)
+        setLoginData(data.user)
     }
 
     const handleFailure = (result) => {
