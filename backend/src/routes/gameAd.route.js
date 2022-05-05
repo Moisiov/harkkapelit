@@ -4,6 +4,6 @@ import * as gameAdController from '../controllers/gameAd.controller.js'
 
 const router = express.Router()
 
-router.put('/api/gamead', authorization, gameAdController.newGameAd)
+router.post('/api/gamead', authorization, gameAdController.newGameAd)
 
 export default router

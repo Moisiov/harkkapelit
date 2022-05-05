@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export const createNewAd = async (data, user) => {
     try {
-        await prisma.gameAd.create({
+        const newAd = await prisma.gameAd.create({
             data: {
                 user: {
                     connect: {
@@ -23,6 +23,8 @@ export const createNewAd = async (data, user) => {
                 gameDates: data.gameDates
             }
         })
+
+        return newAd
     }
     catch (e) {
         console.error(e)

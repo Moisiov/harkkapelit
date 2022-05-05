@@ -1,5 +1,5 @@
 import * as userService from '../services/user.service.js'
-import { getJwt, verifyOAuth2Token, refreshJwt } from '../utils/auth.util.js'
+import { getJwt, verifyOAuth2Token } from '../utils/auth.util.js'
 
 export const userLoginGoogle = async (req, res, next) => {
     const { token } = req.body
@@ -12,7 +12,7 @@ export const userLoginGoogle = async (req, res, next) => {
         await userService.create(user)
     }
 
-    const { accessToken, refreshToken } = getJwt(user)
+    const { accessToken } = getJwt(user)
 
 
     return res.cookie(
@@ -26,26 +26,6 @@ export const userLoginGoogle = async (req, res, next) => {
         ).json({
             user: user
         })
-}
-
-export const token = (req, res) => {
-    const { token } = req.body
-
-    if (!token) {
-        return res.sendStatus(401)
-    }
-
-    if (!refreshTokens.includes(token)) {
-        return res.sendStatus(403)
-    }
-
-    const { status, accessToken } = refreshJwt(token)
-
-    if (status === 403) {
-        return res.sendStatus(403)
-    }
-
-    res.json({ accessToken })
 }
 
 export const logout = (req, res) => {
