@@ -12,7 +12,7 @@ const Games = () => {
 
     const newAd = (e) => {
         e.preventDefault()
-        navigate('../newad', { replace: true })
+        navigate('../newgame', { replace: true })
     }
 
     return (

@@ -1,14 +1,14 @@
 import Card from '../components/generic/cards/card'
-import NewAdForm from '../components/forms/newAdForm'
+import NewGameForm from '../components/forms/newGameForm'
 
-const NewAd = () => {
+const NewGame = () => {
     return (
         <div className='newAdPAge'>
             <Card title='Uusi ilmoitus'>
-                <NewAdForm />
+                <NewGameForm />
             </Card>
         </div>
     )
 }
 
-export default NewAd
+export default NewGame
