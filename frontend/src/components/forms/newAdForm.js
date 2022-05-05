@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { get, put } from '../../common/httpRequests'
+import { get, post } from '../../common/httpRequests'
 
 const NewAdForm = () => {
     const [sports, setSports] = useState([])
@@ -26,7 +26,7 @@ const NewAdForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const inputData = { ...inputs, sport: parseInt(inputs.sport), generation: parseInt(inputs.generation)}
-        put('api/gamead', JSON.stringify(inputData)).then((data) => {
+        post('api/gamead', JSON.stringify(inputData)).then((data) => {
             console.log(data)
         })
     }

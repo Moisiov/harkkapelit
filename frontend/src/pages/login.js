@@ -2,12 +2,15 @@ import { useContext } from 'react'
 import LoginWithGoogle from '../components/auth/loginWithGoogle'
 import Card from '../components/generic/cards/card'
 import { UserContext } from '../contexts/userContext'
+import { get } from '../common/httpRequests'
 
 const Login = () => {
     const { user, setUser } = useContext(UserContext)
 
     const handleLogout = () => {
-        setUser(null)
+        get('/api/logout').then((res) => {
+            setUser(null)
+        })
     }
 
     return (
