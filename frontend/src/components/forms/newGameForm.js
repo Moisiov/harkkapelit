@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 import { get, post } from '../../common/httpRequests'
+import { useNavigate } from 'react-router-dom'
 
 const NewGameForm = () => {
+    let navigate = useNavigate()
+
     const [sports, setSports] = useState([])
     const [inputs, setInputs] = useState({
         title: '',
@@ -23,11 +26,14 @@ const NewGameForm = () => {
         setInputs(values => ({ ...values, [name]: value}))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const inputData = { ...inputs, sport: parseInt(inputs.sport), generation: parseInt(inputs.generation)}
-        post('api/game/create', JSON.stringify(inputData)).then((data) => {
+        const body = JSON.stringify(inputData)
+        post('/api/game/create', body).then((data) => {
             console.log(data)
+            // Change to game ad page later
+            navigate('../games', { replace: true })
         })
     }
 

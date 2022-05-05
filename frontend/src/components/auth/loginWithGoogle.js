@@ -4,8 +4,9 @@ import { post } from '../../common/httpRequests'
 const LoginWithGoogle = ({ setLoginData }) => {
     const handleLogin = async (googleData) => {
         const body = JSON.stringify({ token: googleData.tokenId })
-        const data = await post('api/login/google', body)
-        setLoginData(data.user)
+        post('/api/login/google', body).then((data) => {
+            setLoginData(data.user)
+        })
     }
 
     const handleFailure = (result) => {

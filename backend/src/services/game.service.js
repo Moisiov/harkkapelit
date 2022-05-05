@@ -33,7 +33,7 @@ export const create = async (data, user) => {
 
 export const getAll = async () => {
     try {
-        const games = await prisma.findMany({
+        const games = await prisma.game.findMany({
             orderBy: [
                 {
                     title: 'asc'

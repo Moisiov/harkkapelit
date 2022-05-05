@@ -8,7 +8,7 @@ export const create = async (req, res, next) => {
         return res.sendStatus(500)
     }
 
-    return res.sendStatus(200)
+    return res.status(200).json(game)
 }
 
 export const getAll = async (req, res, next) => {
