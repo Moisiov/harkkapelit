@@ -1,9 +1,6 @@
 import * as userService from '../services/user.service.js'
 import { getJwt, verifyOAuth2Token, refreshJwt } from '../utils/auth.util.js'
 
-// TODO: store somewhere else, Redis maybe?
-global.refreshTokens = []
-
 export const userLoginGoogle = async (req, res, next) => {
     const { token } = req.body
 
@@ -16,14 +13,19 @@ export const userLoginGoogle = async (req, res, next) => {
     }
 
     const { accessToken, refreshToken } = getJwt(user)
-    refreshTokens.push(refreshToken)
 
-    res.status(200)
-    res.json({
-        user: user,
+
+    return res.cookie(
+        'access_token',
         accessToken,
-        refreshToken
-    })
+        {
+            httpOnly: true,
+            secure: false
+        }).status(
+            200
+        ).json({
+            user: user
+        })
 }
 
 export const token = (req, res) => {
@@ -47,8 +49,11 @@ export const token = (req, res) => {
 }
 
 export const logout = (req, res) => {
-    const { token } = req.body
-    refreshTokens.filter(token => t !== token)
-
-    res.send('Logged out')
+    return res.clearCookie(
+        'access_token'
+        ).status(
+            200
+        ).json({
+            message: 'Logged out'
+        })
 }

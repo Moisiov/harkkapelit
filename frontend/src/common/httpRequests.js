@@ -12,7 +12,7 @@ export const get = async (url) => {
 export const post = async (url, body) => {
     return fetch(url, {
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
         method: "POST",
         body
@@ -24,9 +24,9 @@ export const post = async (url, body) => {
 export const put = async (url, body) => {
     return fetch(url, {
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
-        method: "PUT",
+        method: 'PUT',
         body
     }).then((response) => {
         return response.json()
