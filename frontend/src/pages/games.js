@@ -4,6 +4,7 @@ import Icon from '../components/generic/icons/icon'
 import Tooltip from '../components/generic/helpers/tooltip'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../contexts/userContext'
+import GamesList from '../components/games/gamesList'
 
 const Games = () => {
     let navigate = useNavigate()
@@ -25,6 +26,7 @@ const Games = () => {
                     </Tooltip>
                 ) : (<></>)}
             </div>
+            <GamesList />
         </div>
     )
 }
