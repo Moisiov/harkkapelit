@@ -14,9 +14,15 @@ datasource db {
 model User {
   id      Int     @id @default(autoincrement())
   email   String  @unique
+  role    Role    @default(USER)
   name    String
   profile Profile?
   ads     GameAd[]
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Profile {
