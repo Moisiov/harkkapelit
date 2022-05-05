@@ -1,22 +1,13 @@
 import * as userService from '../services/user.service.js'
-import { OAuth2Client  } from 'google-auth-library'
-import { getJwt } from '../utils/auth.util.js'
+import { getJwt, verifyOAuth2Token, refreshJwt } from '../utils/auth.util.js'
 
-const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID)
+// TODO: store somewhere else, Redis maybe?
+global.refreshTokens = []
 
 export const userLoginGoogle = async (req, res, next) => {
     const { token } = req.body
 
-    const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: process.env.CLIENT_ID
-    })
-    const { name, email, picture } = ticket.getPayload()
-
-    const user = {
-        name: name,
-        email: email
-    }
+    const user = await verifyOAuth2Token(token)
 
     var userInDatabase = await userService.getUserByEmail(user.email)
     
@@ -25,11 +16,39 @@ export const userLoginGoogle = async (req, res, next) => {
     }
 
     const { accessToken, refreshToken } = getJwt(user)
+    refreshTokens.push(refreshToken)
 
     res.status(200)
     res.json({
         user: user,
-        accessToken: accessToken,
-        refreshToken: refreshToken
+        accessToken,
+        refreshToken
     })
+}
+
+export const token = (req, res) => {
+    const { token } = req.body
+
+    if (!token) {
+        return res.sendStatus(401)
+    }
+
+    if (!refreshTokens.includes(token)) {
+        return res.sendStatus(403)
+    }
+
+    const { status, accessToken } = refreshJwt(token)
+
+    if (status === 403) {
+        return res.sendStatus(403)
+    }
+
+    res.json({ accessToken })
+}
+
+export const logout = (req, res) => {
+    const { token } = req.body
+    refreshTokens.filter(token => t !== token)
+
+    res.send('Logged out')
 }
