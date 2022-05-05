@@ -9,7 +9,7 @@ export const createNewAd = async (data, user) => {
             data: {
                 user: {
                     connect: {
-                        id: user.id
+                        email: user.email
                     }
                 },
                 sport: {
