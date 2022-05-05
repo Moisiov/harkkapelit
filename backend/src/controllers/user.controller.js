@@ -20,7 +20,7 @@ export const userLoginGoogle = async (req, res, next) => {
         accessToken,
         {
             httpOnly: true,
-            secure: false
+            secure: process.env.NODE_ENV || true
         }).status(
             200
         ).json({

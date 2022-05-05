@@ -13,11 +13,32 @@ const GamesList = () => {
 
     return (
         <div className='gamesListWrapper'>
-            {
-                games.map(game => {
-                    return <Card title={game.title} key={game.id}>{game.description}</Card>
-                })
-            }
+            <Card title='Ilmoitukset '>
+                <table className='gamesTable'>
+                    <thead className='headerRow'>
+                        <tr>
+                            <th>Otsikko</th>
+                            <th>Ikäluokka</th>
+                            <th>Taitotaso</th>
+                            <th>Pelipäivät</th>
+                        </tr>
+                    </thead>
+                    <tbody className='body'>
+                        {
+                            games.map(game => {
+                                return (
+                                    <tr key={game.id}>
+                                        <th>{game.title}</th>
+                                        <th>{game.generation}</th>
+                                        <th>not implemented</th>
+                                        <th>not implemented</th>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
+            </Card>
         </div>
     )
 }

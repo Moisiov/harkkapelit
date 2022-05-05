@@ -1,5 +1,11 @@
-.gamesListWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+@import '../../styles/variables.scss';
+
+.gamesTable {
+    width: 100%;
+
+    .body {
+        tr:nth-child(even) {
+            background-color: $tableRows;
+        }
+    }
 }
