@@ -5,7 +5,7 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import userRouter from './routes/user.route.js'
 import sportRouter from './routes/sport.route.js'
-import gameAdRouter from './routes/gameAd.route.js'
+import gameRouter from './routes/game.route.js'
 
 const PORT = process.env.PORT || 5000
 
@@ -16,7 +16,7 @@ app.use(cookieParser())
 
 app.use(userRouter)
 app.use(sportRouter)
-app.use(gameAdRouter)
+app.use(gameRouter)
 
 app.get('/', (req, res) => {
   res.send('Harkkapelit server')
