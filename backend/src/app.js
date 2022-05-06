@@ -16,7 +16,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({ origin: 'https://heroku.com', credentials: true }))
+app.use(cors())
 
 app.use(userRouter)
 app.use(sportRouter)

@@ -18,7 +18,7 @@ const LoginWithGoogle = ({ setLoginData }) => {
         buttonText="Log in with Google"
         onSuccess={handleLogin}
         onFailure={handleFailure}
-        cookiePolicy='single_host_origin'
+        cookiePolicy='https://heroku.com'
         />
 }
 
