@@ -1,13 +1,21 @@
 import { useState, useEffect } from 'react'
 import { get } from '../../utils/httpRequests'
 import Card from '../generic/cards/card'
+import { getSkillLevels } from '../../utils/skillLevels'
 
 const GamesList = () => {
     const [games, setGames] = useState([])
 
     useEffect(() => {
         get('/api/game/getall').then((res) => {
-            setGames(res)
+            const modifiedGames = res.map((game) => {
+                return {
+                    ...game,
+                    skillLevel: getSkillLevels().find(el => el.value === game.skillLevel).skillLevel
+                }
+            })
+
+            setGames(modifiedGames)
         })
     }, [])
 
@@ -23,15 +31,15 @@ const GamesList = () => {
                             <th>Pelipäivä</th>
                         </tr>
                     </thead>
-                    <tbody className='body'>
+                    <tbody className='tableBody'>
                         {
                             games.map(game => {
                                 return (
                                     <tr key={game.id}>
-                                        <th>{game.title}</th>
-                                        <th>{game.generation}</th>
-                                        <th>{game.skillLevel}</th>
-                                        <th>{game.gameDate}</th>
+                                        <td>{game.title}</td>
+                                        <td>{game.generation}</td>
+                                        <td>{game.skillLevel}</td>
+                                        <td>{game.gameDate}</td>
                                     </tr>
                                 )
                             })

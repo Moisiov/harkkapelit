@@ -2,10 +2,18 @@
 
 .gamesTable {
     width: 100%;
+    border: none;
 
-    .body {
+    .tableBody {
         tr:nth-child(even) {
             background-color: $tableRows;
+        }
+
+        tr {
+            &:hover {
+                background-color: $light;
+                cursor: pointer;
+            }
         }
     }
 }
