@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { get, post } from '../../common/httpRequests'
+import { get, post } from '../../utils/httpRequests'
 import { useNavigate } from 'react-router-dom'
+import { getSkillLevels } from '../../utils/skillLevels'
 
 const NewGameForm = () => {
     let navigate = useNavigate()
@@ -11,7 +12,8 @@ const NewGameForm = () => {
         sport: null,
         description: '',
         generation: '',
-        gameDates: []
+        skillLevel: null,
+        gameDate: new Date()
     })
 
     useEffect(() => {
@@ -28,7 +30,7 @@ const NewGameForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const inputData = { ...inputs, sport: parseInt(inputs.sport), generation: parseInt(inputs.generation)}
+        const inputData = { ...inputs, sport: parseInt(inputs.sport), generation: parseInt(inputs.generation), skillLevel: parseInt(inputs.skillLevel)}
         const body = JSON.stringify(inputData)
         post('/api/game/create', body).then((data) => {
             console.log(data)
@@ -50,7 +52,7 @@ const NewGameForm = () => {
                         <select name='sport' onChange={handleChange}>
                             <option value={null}></option>
                             {sports.map((sport) => {
-                                return <option value={sport.id}>{sport.name}</option>
+                                return <option key={sport.id} value={sport.id}>{sport.name}</option>
                             })}
                         </select>
                     </label>
@@ -61,6 +63,14 @@ const NewGameForm = () => {
                     <label>
                         <p>Ikäluokka</p>
                         <input name='generation' type='text' pattern='[0-9]*'  onChange={handleChange} />
+                    </label>
+                    <label>
+                        <p>Taitotaso</p>
+                        <select name='skillLevel' onChange={handleChange}>
+                            {getSkillLevels().map((skill) => {
+                                return <option key={skill.value} value={skill.value}>{skill.skillLevel}</option>
+                            })}
+                        </select>
                     </label>
                 </fieldset>
                 <button type='submit'>Tallenna</button>

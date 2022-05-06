@@ -1,5 +1,5 @@
 import GoogleLogin from 'react-google-login'
-import { post } from '../../common/httpRequests'
+import { post } from '../../utils/httpRequests'
 
 const LoginWithGoogle = ({ setLoginData }) => {
     const handleLogin = async (googleData) => {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { get } from '../../common/httpRequests'
+import { get } from '../../utils/httpRequests'
 import Card from '../generic/cards/card'
 
 const GamesList = () => {
@@ -20,7 +20,7 @@ const GamesList = () => {
                             <th>Otsikko</th>
                             <th>Ikäluokka</th>
                             <th>Taitotaso</th>
-                            <th>Pelipäivät</th>
+                            <th>Pelipäivä</th>
                         </tr>
                     </thead>
                     <tbody className='body'>
@@ -30,8 +30,8 @@ const GamesList = () => {
                                     <tr key={game.id}>
                                         <th>{game.title}</th>
                                         <th>{game.generation}</th>
-                                        <th>not implemented</th>
-                                        <th>not implemented</th>
+                                        <th>{game.skillLevel}</th>
+                                        <th>{game.gameDate}</th>
                                     </tr>
                                 )
                             })

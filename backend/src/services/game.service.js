@@ -20,7 +20,8 @@ export const create = async (data, user) => {
                 title: data.title,
                 description: data.description,
                 generation: data.generation,
-                gameDates: data.gameDates
+                skillLevel: data.skillLevel,
+                gameDate: data.gameDate
             }
         })
 

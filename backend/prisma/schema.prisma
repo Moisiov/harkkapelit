@@ -45,7 +45,8 @@ model Game {
   title         String
   description   String?
   generation    Int
-  gameDates     DateTime[]
+  skillLevel    Int       @default(1)
+  gameDate      DateTime  @default(now())
 }
 
 model Sport {
