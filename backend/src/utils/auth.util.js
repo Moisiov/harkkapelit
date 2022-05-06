@@ -12,7 +12,7 @@ export const verifyOAuth2Token = async (token) => {
 
     const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: process.env.CLIENT_ID
+        audience: process.env.REACT_APP_GOOGLE_CLIENT_ID
     })
     const { name, email, picture } = ticket.getPayload()
 
