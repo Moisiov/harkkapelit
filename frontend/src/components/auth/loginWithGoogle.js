@@ -15,10 +15,10 @@ const LoginWithGoogle = ({ setLoginData }) => {
 
     return <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        buttonText="Log in with Google"
+        buttonText="Kirjaudu Google-tunnuksella"
         onSuccess={handleLogin}
         onFailure={handleFailure}
-        cookiePolicy='https://heroku.com'
+        cookiePolicy='https://herokuapp.com'
         />
 }
 
